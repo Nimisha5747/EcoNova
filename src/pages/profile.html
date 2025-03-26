@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - EcoNova</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/icons/ecoNova-logo.png" alt="EcoNova Logo">
+                <h1>EcoNova</h1>
+            </a>
+        </div>
+        <nav>
+            <a href="login.html" id="loginBtn" class="nav-btn">Login</a>
+            <a href="signup.html" id="signUpBtn" class="nav-btn">Sign Up</a>
+            <a href="cart.html" id="cartBtn" class="nav-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="profile.html" id="profileBtn" class="nav-btn"><i class="fas fa-user"></i></a>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <div class="profile-sidebar">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h2 id="userName">Loading...</h2>
+                <p id="userEmail">Loading...</p>
+            </div>
+            <nav class="profile-nav">
+                <button class="profile-nav-btn active" data-section="info">
+                    <i class="fas fa-user"></i> Profile Info
+                </button>
+                <button class="profile-nav-btn" data-section="orders">
+                    <i class="fas fa-shopping-bag"></i> Order History
+                </button>
+                <button class="profile-nav-btn" data-section="addresses">
+                    <i class="fas fa-map-marker-alt"></i> Saved Addresses
+                </button>
+                <button class="profile-nav-btn" data-section="settings">
+                    <i class="fas fa-cog"></i> Account Settings
+                </button>
+                <button class="profile-nav-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </nav>
+        </div>
+
+        <div class="profile-content">
+            <!-- Profile Info Section -->
+            <section id="info" class="profile-section active">
+                <h3>Profile Information</h3>
+                <form id="profileForm" class="profile-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userType">Account Type</label>
+                        <select id="userType" name="userType" required>
+                            <option value="individual">Individual</option>
+                            <option value="business">Business</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </form>
+            </section>
+
+            <!-- Order History Section -->
+            <section id="orders" class="profile-section">
+                <h3>Order History</h3>
+                <div class="orders-list" id="ordersList">
+                    <!-- Orders will be dynamically added here -->
+                </div>
+            </section>
+
+            <!-- Saved Addresses Section -->
+            <section id="addresses" class="profile-section">
+                <h3>Saved Addresses</h3>
+                <button class="add-address-btn" id="addAddressBtn">
+                    <i class="fas fa-plus"></i> Add New Address
+                </button>
+                <div class="addresses-list" id="addressesList">
+                    <!-- Addresses will be dynamically added here -->
+                </div>
+            </section>
+
+            <!-- Account Settings Section -->
+            <section id="settings" class="profile-section">
+                <h3>Account Settings</h3>
+                <form id="passwordForm" class="profile-form">
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" name="currentPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" name="newPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="save-btn">Change Password</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Address Modal -->
+    <div id="addressModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Add New Address</h3>
+            <form id="addressForm">
+                <div class="form-group">
+                    <label for="addressName">Address Name</label>
+                    <input type="text" id="addressName" name="addressName" required>
+                </div>
+                <div class="form-group">
+                    <label for="streetAddress">Street Address</label>
+                    <input type="text" id="streetAddress" name="streetAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">ZIP Code</label>
+                    <input type="text" id="zipCode" name="zipCode" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                <button type="submit" class="save-btn">Save Address</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
+
+    <!-- Application Scripts -->
+    <script type="module" src="../js/utils/firebase.js"></script>
+    <script type="module" src="../js/profile.js"></script>
+</body>
+</html> 

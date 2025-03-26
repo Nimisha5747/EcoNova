@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - EcoNova</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/icons/ecoNova-logo.png" alt="EcoNova Logo">
+                <h1>EcoNova</h1>
+            </a>
+        </div>
+        <nav>
+            <a href="login.html" id="loginBtn" class="nav-btn">Login</a>
+            <a href="signup.html" id="signUpBtn" class="nav-btn">Sign Up</a>
+            <a href="cart.html" id="cartBtn" class="nav-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="profile.html" id="profileBtn" class="nav-btn"><i class="fas fa-user"></i></a>
+        </nav>
+    </header>
+
+    <main class="careers-container">
+        <div class="careers-header">
+            <h2>Join Our Team</h2>
+            <p>Make a difference in the world while building your career</p>
+        </div>
+
+        <div class="careers-content">
+            <!-- Job Categories -->
+            <aside class="job-categories">
+                <h3>Job Categories</h3>
+                <div class="category-filters">
+                    <button class="category-btn active" data-category="all">All Positions</button>
+                    <button class="category-btn" data-category="engineering">Engineering</button>
+                    <button class="category-btn" data-category="marketing">Marketing</button>
+                    <button class="category-btn" data-category="operations">Operations</button>
+                    <button class="category-btn" data-category="sales">Sales</button>
+                    <button class="category-btn" data-category="design">Design</button>
+                </div>
+            </aside>
+
+            <!-- Job Listings -->
+            <section class="job-listings">
+                <div class="search-bar">
+                    <input type="text" id="jobSearch" placeholder="Search jobs...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="jobs-grid" id="jobsGrid">
+                    <!-- Jobs will be loaded here dynamically -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Job Application Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="application-form-container">
+                <h3>Apply for <span id="jobTitle"></span></h3>
+                <form id="applicationForm" class="application-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resume">Resume (PDF)</label>
+                        <input type="file" id="resume" accept=".pdf" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="coverLetter">Cover Letter</label>
+                        <textarea id="coverLetter" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-application-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage.js"></script>
+
+    <!-- Application Scripts -->
+    <script type="module" src="../js/utils/firebase.js"></script>
+    <script type="module" src="../js/careers.js"></script>
+</body>
+</html> 

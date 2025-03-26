@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - EcoNova</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/icons/ecoNova-logo.png" alt="EcoNova Logo">
+                <h1>EcoNova</h1>
+            </a>
+        </div>
+        <nav>
+            <a href="login.html" id="loginBtn" class="nav-btn">Login</a>
+            <a href="signup.html" id="signUpBtn" class="nav-btn">Sign Up</a>
+            <a href="cart.html" id="cartBtn" class="nav-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="profile.html" id="profileBtn" class="nav-btn"><i class="fas fa-user"></i></a>
+        </nav>
+    </header>
+
+    <main class="shop-container">
+        <div class="shop-header">
+            <h2>Our Products</h2>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search products...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <div class="shop-content">
+            <!-- Filters Sidebar -->
+            <aside class="filters-sidebar">
+                <div class="filter-section">
+                    <h3>Categories</h3>
+                    <div class="filter-options">
+                        <label>
+                            <input type="checkbox" name="category" value="electronics"> Electronics
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="clothing"> Clothing
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="accessories"> Accessories
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="home"> Home & Living
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Price Range</h3>
+                    <div class="price-range">
+                        <input type="range" id="priceRange" min="0" max="1000" step="10">
+                        <div class="price-inputs">
+                            <input type="number" id="minPrice" placeholder="Min">
+                            <span>to</span>
+                            <input type="number" id="maxPrice" placeholder="Max">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Sort By</h3>
+                    <select id="sortSelect">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+
+                <button id="applyFilters" class="apply-filters-btn">Apply Filters</button>
+            </aside>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="product-modal-content">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
+
+    <!-- Application Scripts -->
+    <script type="module" src="../js/utils/firebase.js"></script>
+    <script type="module" src="../js/shop.js"></script>
+</body>
+</html> 

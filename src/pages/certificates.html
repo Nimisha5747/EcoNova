@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates - EcoNova</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/icons/ecoNova-logo.png" alt="EcoNova Logo">
+                <h1>EcoNova</h1>
+            </a>
+        </div>
+        <nav>
+            <a href="login.html" id="loginBtn" class="nav-btn">Login</a>
+            <a href="signup.html" id="signUpBtn" class="nav-btn">Sign Up</a>
+            <a href="cart.html" id="cartBtn" class="nav-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="profile.html" id="profileBtn" class="nav-btn"><i class="fas fa-user"></i></a>
+        </nav>
+    </header>
+
+    <main class="certificates-container">
+        <div class="certificates-header">
+            <h2>Our Certification</h2>
+            <p>Recognized for our commitment to environmental sustainability and responsible business practices</p>
+        </div>
+
+        <div class="certificates-grid">
+            <div class="certificate-card">
+                <div class="certificate-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Green Citizen certificate</h3>
+                <p>Recognizing individuals contributing to environmental sustainability</p>
+                <div class="certificate-details">
+                    <p><strong>Issued:</strong> January 2025</p>
+                    <p><strong>Valid Until:</strong> January 2027</p>
+                    <p><strong>Scope:</strong> All operations and facilities</p>
+                </div>
+                <button class="view-certificate-btn" data-cert="iso14001">
+                    View Certificate
+                </button>
+            </div>
+        </div>
+
+        <div class="certificates-info">
+            <div class="info-section">
+                <h3>Our Commitment</h3>
+                <p>At EcoNova, we are dedicated to maintaining the highest standards of environmental responsibility and sustainability. Our ISO 14001 certification demonstrates our ongoing commitment to:</p>
+                <ul>
+                    <li>Reducing environmental impact</li>
+                    <li>Promoting sustainable practices</li>
+                    <li>Ensuring ethical business operations</li>
+                    <li>Supporting renewable energy initiatives</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h3>Verification Process</h3>
+                <p>Our ISO 14001 certification is verified by independent third-party auditors and is regularly reviewed to ensure continued compliance with the highest standards.</p>
+                <div class="verification-steps">
+                    <div class="step">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Initial Assessment</span>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-tasks"></i>
+                        <span>Implementation</span>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-search"></i>
+                        <span>Audit</span>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certification</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Certificate Modal -->
+    <div class="modal" id="certificateModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="certificate-viewer">
+                <div class="certificate-header">
+                    <h2 id="modalTitle"></h2>
+                </div>
+                <div class="certificate-body">
+                    <img id="certificateImage" src="" alt="Certificate">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
+
+    <!-- Application Scripts -->
+    <script type="module" src="../js/utils/firebase.js"></script>
+    <script type="module" src="../js/certificates.js"></script>
+</body>
+</html> 

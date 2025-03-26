@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - EcoNova</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/icons/ecoNova-logo.png" alt="EcoNova Logo">
+                <h1>EcoNova</h1>
+            </a>
+        </div>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-box">
+            <h2>Create Account</h2>
+            <form id="signUpForm">
+                <div class="form-group">
+                    <label for="signupUsername">Email</label>
+                    <input type="email" id="signupUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPasswordConfirm">Confirm Password</label>
+                    <input type="password" id="signupPasswordConfirm" required>
+                </div>
+                <div class="form-group">
+                    <label>User Type</label>
+                    <div class="user-type-buttons">
+                        <button type="button" class="user-type-btn active" data-type="individual">Individual</button>
+                        <button type="button" class="user-type-btn" data-type="organization">Organization</button>
+                    </div>
+                </div>
+                <div class="form-group organization-fields" style="display: none;">
+                    <label for="orgName">Organization Name</label>
+                    <input type="text" id="orgName">
+                    <label for="orgType">Organization Type</label>
+                    <select id="orgType">
+                        <option value="business">Business</option>
+                        <option value="nonprofit">Non-Profit</option>
+                        <option value="government">Government</option>
+                        <option value="educational">Educational</option>
+                    </select>
+                </div>
+                <div class="form__message"></div>
+                <button type="submit" id="submit">Create Account</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
+
+    <!-- Application Scripts -->
+    <script type="module" src="../js/utils/firebase.js"></script>
+    <script type="module" src="../js/auth/signUp.js"></script>
+</body>
+</html> 

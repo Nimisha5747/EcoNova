@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Pickup - EcoNova</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/icons/ecoNova-logo.png" alt="EcoNova Logo">
+                <h1>EcoNova</h1>
+            </a>
+        </div>
+        <nav>
+            <a href="login.html" id="loginBtn" class="nav-btn">Login</a>
+            <a href="signup.html" id="signUpBtn" class="nav-btn">Sign Up</a>
+            <a href="cart.html" id="cartBtn" class="nav-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="profile.html" id="profileBtn" class="nav-btn"><i class="fas fa-user"></i></a>
+        </nav>
+    </header>
+
+    <main class="pickup-container">
+        <div class="pickup-header">
+            <h2>Schedule a Pickup</h2>
+            <p>Choose a convenient time for us to collect your items</p>
+        </div>
+
+        <div class="pickup-content">
+            <div class="pickup-form-container">
+                <form id="pickupForm" class="pickup-form">
+                    <!-- Address Selection -->
+                    <section class="form-section">
+                        <h3>Pickup Address</h3>
+                        <div class="address-selection">
+                            <div class="saved-addresses" id="savedAddresses">
+                                <!-- Saved addresses will be loaded here -->
+                            </div>
+                            <button type="button" class="add-address-btn" id="addAddressBtn">
+                                <i class="fas fa-plus"></i> Add New Address
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Date and Time Selection -->
+                    <section class="form-section">
+                        <h3>Pickup Date & Time</h3>
+                        <div class="form-group">
+                            <label for="pickupDate">Preferred Date</label>
+                            <input type="date" id="pickupDate" name="pickupDate" required min="">
+                        </div>
+                        <div class="form-group">
+                            <label for="pickupTime">Preferred Time Slot</label>
+                            <select id="pickupTime" name="pickupTime" required>
+                                <option value="">Select a time slot</option>
+                                <option value="09:00-12:00">Morning (9:00 AM - 12:00 PM)</option>
+                                <option value="12:00-15:00">Afternoon (12:00 PM - 3:00 PM)</option>
+                                <option value="15:00-18:00">Evening (3:00 PM - 6:00 PM)</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <!-- Item Details -->
+                    <section class="form-section">
+                        <h3>Item Details</h3>
+                        <div class="form-group">
+                            <label for="itemType">Type of Items</label>
+                            <select id="itemType" name="itemType" required>
+                                <option value="">Select item type</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="furniture">Furniture</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCount">Number of Items</label>
+                            <input type="number" id="itemCount" name="itemCount" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemDescription">Item Description</label>
+                            <textarea id="itemDescription" name="itemDescription" rows="4" required
+                                placeholder="Please describe your items briefly"></textarea>
+                        </div>
+                    </section>
+
+                    <!-- Special Instructions -->
+                    <section class="form-section">
+                        <h3>Special Instructions</h3>
+                        <div class="form-group">
+                            <label for="specialInstructions">Additional Notes</label>
+                            <textarea id="specialInstructions" name="specialInstructions" rows="4"
+                                placeholder="Any special instructions for pickup?"></textarea>
+                        </div>
+                    </section>
+
+                    <button type="submit" class="schedule-pickup-btn">
+                        Schedule Pickup
+                    </button>
+                </form>
+            </div>
+
+            <!-- Pickup Guidelines -->
+            <div class="pickup-guidelines">
+                <h3>Pickup Guidelines</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Please ensure items are ready at least 30 minutes before the scheduled pickup time</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-box"></i>
+                        <span>Items should be properly packed and labeled</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Make sure the pickup address is easily accessible</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>Keep your phone number updated for pickup confirmation</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-info-circle"></i>
+                        <span>Provide accurate item descriptions for better service</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Address Modal -->
+    <div id="addressModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Add New Address</h3>
+            <form id="addressForm">
+                <div class="form-group">
+                    <label for="addressName">Address Name</label>
+                    <input type="text" id="addressName" name="addressName" required>
+                </div>
+                <div class="form-group">
+                    <label for="streetAddress">Street Address</label>
+                    <input type="text" id="streetAddress" name="streetAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">ZIP Code</label>
+                    <input type="text" id="zipCode" name="zipCode" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                <button type="submit" class="save-btn">Save Address</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
+
+    <!-- Application Scripts -->
+    <script type="module" src="../js/utils/firebase.js"></script>
+    <script type="module" src="../js/pickup.js"></script>
+</body>
+</html> 
